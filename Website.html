@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EMUNAH | Faith in Action</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="https://js-na2.hsforms.net/forms/embed/243366919.js" defer></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #ffffff;
+      color: #000000;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 2px;
+      width: 0;
+      background: black;
+      transition: width 0.3s ease-in-out;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .hero {
+      height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #fff, #f5f5f5);
+      box-shadow: inset 0 -40px 80px rgba(0,0,0,0.05);
+    }
+    .hero h1 {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      text-align: center;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+    .cta-btn {
+      padding: 0.75rem 2rem;
+      border: 2px solid black;
+      background: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+    .cta-btn:hover {
+      background: black;
+      color: white;
+    }
+    .section {
+      padding: 5rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .submit-btn {
+      padding: 0.75rem 2rem;
+      background: black;
+      color: white;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    footer {
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      background: #000;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">EMUNAH</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#contact">Contact</a>
+      <a href="#blog">Blog</a>
+      <a href="#donate">Donate</a>
+      <a href="#merch">Merch</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Living Faith Daily</h1>
+    <p>Join the EMUNAH movement – where we share God's word every day and inspire lives through faith and action.</p>
+    <button class="cta-btn" onclick="document.getElementById('subscribe').scrollIntoView({ behavior: 'smooth' })">Join Our Daily Verse List</button>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <form>
+      <div class="form-group">
+        <input type="text" placeholder="Your Name" required />
+      </div>
+      <div class="form-group">
+        <input type="email" placeholder="Your Email" required />
+      </div>
+      <div class="form-group">
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+      </div>
+      <button class="submit-btn" type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <section id="blog" class="section">
+    <h2>Our Blog</h2>
+    <p style="text-align:center">Faith-based writings, testimonies, and inspiration – updated weekly.</p>
+  </section>
+
+  <section id="donate" class="section">
+    <h2>Support Our Mission</h2>
+    <p style="text-align:center">Your donations help us reach more souls and spread the Word of God around the world.</p>
+    <div style="text-align:center;margin-top:2rem">
+      <button class="cta-btn">Donate Now</button>
+    </div>
+  </section>
+
+  <section id="merch" class="section">
+    <h2>EMUNAH Merch</h2>
+    <p style="text-align:center">Represent your faith with purpose. Shop our exclusive black & white merch.</p>
+  </section>
+
+  <section id="subscribe" class="section">
+    <h2>Subscribe for Daily Verses</h2>
+    <div class="hs-form-frame" data-region="na2" data-form-id="ce6e26ee-1fc4-46b1-92c0-a6ccfa03e0da" data-portal-id="243366919"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 EMUNAH. All rights reserved.
+  </footer>
+</body>
+</html>
