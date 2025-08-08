@@ -1,17 +1,17 @@
 // Footer year
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// Enable submit only when consent checked
+// Subscribe button enable only if consent checked
+const form = document.getElementById("subscribe-form");
 const consent = document.getElementById("consent");
 const submitBtn = document.getElementById("submit-btn");
-const form = document.getElementById("subscribe-form");
 const formMsg = document.getElementById("form-msg");
 
 consent.addEventListener("change", () => {
   submitBtn.disabled = !consent.checked;
 });
 
-// Optional: light phone formatting
+// Light phone formatting
 const phoneInput = form.querySelector('input[name="phone"]');
 phoneInput.addEventListener("input", () => {
   let x = phoneInput.value.replace(/\D/g, "").slice(0, 10);
@@ -22,7 +22,7 @@ phoneInput.addEventListener("input", () => {
   phoneInput.value = p.join("");
 });
 
-// Handle submit → calls our Vercel API route (stubbed now)
+// Submit (still hitting the stub serverless function)
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   formMsg.textContent = "";
@@ -35,7 +35,6 @@ form.addEventListener("submit", async (e) => {
     consent: consent.checked
   };
 
-  // Simple client validation
   if (!payload.name || !payload.email || payload.phone.length < 10 || !payload.consent) {
     formMsg.textContent = "Please fill all fields and accept messages.";
     submitBtn.disabled = !consent.checked;
@@ -48,16 +47,14 @@ form.addEventListener("submit", async (e) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
-
     if (!res.ok) throw new Error("Failed to subscribe");
     const data = await res.json();
     formMsg.textContent = data.message || "Thanks! You’ll start getting daily texts soon.";
     form.reset();
     submitBtn.disabled = true;
   } catch (err) {
-    formMsg.textContent = "Something went wrong. Please try again.";
     console.error(err);
+    formMsg.textContent = "Something went wrong. Please try again.";
     submitBtn.disabled = !consent.checked;
   }
 });
-
