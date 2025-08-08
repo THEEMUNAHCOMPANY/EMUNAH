@@ -55,7 +55,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   formMsg.textContent = "";
 
-  if (!checkFormReady()) {
+  if (!checkFormReady ? false : !checkFormReady()) { // if you have checkFormReady()
     formMsg.textContent = "Please fill all fields correctly and accept messages.";
     return;
   }
@@ -63,9 +63,9 @@ form.addEventListener("submit", async (e) => {
   submitBtn.disabled = true;
 
   const payload = {
-    name: nameInput.value.trim(),
-    email: emailInput.value.trim(),
-    phone: digitsOnly(phoneInput.value),
+    name: nameInput ? nameInput.value.trim() : form.name.value.trim(),
+    email: emailInput ? emailInput.value.trim() : form.email.value.trim(),
+    phone: (phoneInput ? phoneInput.value : form.phone.value).replace(/\D/g, ""),
     consent: consent.checked
   };
 
@@ -75,15 +75,20 @@ form.addEventListener("submit", async (e) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
     });
-    if (!res.ok) throw new Error("Failed to subscribe");
 
-    const data = await res.json();
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      formMsg.textContent = data.error || "Something went wrong. Please try again.";
+      submitBtn.disabled = !consent.checked;
+      return;
+    }
+
     formMsg.textContent = data.message || "Thanks! You’ll start getting daily texts soon.";
     form.reset();
     submitBtn.disabled = true; // stays disabled until fields are re-filled
   } catch (err) {
     console.error(err);
-    formMsg.textContent = "Something went wrong. Please try again.";
-    checkFormReady(); // re-enable if fields are still valid
+    formMsg.textContent = "Network error. Please try again.";
+    submitBtn.disabled = !consent.checked;
   }
 });
