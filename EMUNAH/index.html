@@ -1,1 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EMUNAH — Daily Verses</title>
+  <meta name="description" content="EMUNAH: Daily verses and encouragement." />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="#top">EMUNAH</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#subscribe">Subscribe</a>
+        <a href="#merch">Merch</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <h1 class="title">EMUNAH</h1>
+      <p class="subtitle">Daily verses & encouragement — one simple message a day.</p>
+      <a class="cta" href="#subscribe">Get Daily Texts</a>
+    </section>
+
+    <section id="about" class="section container">
+      <h2>About Me</h2>
+      <p>
+        I created <strong>EMUNAH</strong> to share short, grounded reminders of God’s word.
+        The goal is simple: a steady rhythm of truth in your everyday life. No noise, no spam—just scripture and encouragement.
+      </p>
+    </section>
+
+    <section id="subscribe" class="section container card">
+      <h2>Subscribe to Daily Texts</h2>
+      <p class="muted">Free to join. One message per day. You can stop anytime.</p>
+
+      <form id="subscribe-form" novalidate>
+        <div class="grid">
+          <label>
+            <span>Name</span>
+            <input name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" placeholder="you@example.com" required />
+          </label>
+          <label class="full">
+            <span>Phone</span>
+            <input name="phone" type="tel" inputmode="tel" placeholder="(555) 123-4567" required />
+          </label>
+        </div>
+
+        <label class="checkbox">
+          <input id="consent" type="checkbox" required />
+          <span>I agree to receive daily text messages from EMUNAH. Message/data rates may apply.</span>
+        </label>
+
+        <button id="submit-btn" type="submit" disabled>Subscribe</button>
+        <p id="form-msg" class="form-msg" role="status" aria-live="polite"></p>
+      </form>
+
+      <small class="muted">
+        We respect your privacy. We’ll only use your info to send you EMUNAH updates and daily verses.
+      </small>
+    </section>
+
+    <section id="merch" class="section container">
+      <h2>Merch</h2>
+      <div class="coming-soon card">
+        <p>Coming soon.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> EMUNAH • @theemunahcompany</p>
+    </div>
+  </footer>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
 
